@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <script src="https://unpkg.com/@reactivex/rxjs@6.3.3/dist/global/rxjs.umd.js"> </script>
+</head>
+
+<body>
+    <button>Click me!</button>
+
+    <script>
+        const button = document.querySelector('button');
+        var count = 0;
+        var rate = 1000;
+        var lastClick = Date.now() - rate;
+        button.addEventListener('click',
+            (e) => {
+                if (Date.now() - lastClick >= rate) {
+                    count+= e.clientX;
+                    console.log(`Clicked ${count} times!`)
+                    lastClick = Date.now();
+                }
+            }
+        );
+    </script>
+
+</body>
+
+</html>
